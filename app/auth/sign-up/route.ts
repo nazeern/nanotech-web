@@ -11,17 +11,31 @@ export async function POST(request: Request) {
   const password = String(formData.get('password'))
   const supabase = createRouteHandlerClient({ cookies })
 
+  const getURL = () => {
+    let url =
+      process?.env?.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
+      process?.env?.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
+      'http://localhost:3000/'
+    // Make sure to include `https://` when not localhost.
+    url = url.includes('http') ? url : `https://${url}`
+    // Make sure to include a trailing `/`.
+    url = url.charAt(url.length - 1) === '/' ? url : `${url}/`
+    return url
+  }
+
+
+
   const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      emailRedirectTo: `${requestUrl.origin}/auth/callback`,
+      emailRedirectTo: `${getURL()}/auth/callback`,
     },
   })
 
   if (error) {
     return NextResponse.redirect(
-      `${requestUrl.origin}/login?error=Could not authenticate user`,
+      `${getURL()}/login?error=Could not authenticate user`,
       {
         // a 301 status is required to redirect from a POST to a GET route
         status: 301,
@@ -30,7 +44,7 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.redirect(
-    `${requestUrl.origin}/login?message=Check email to continue sign in process`,
+    `${getURL()}/login?message=Check email to continue sign in process`,
     {
       // a 301 status is required to redirect from a POST to a GET route
       status: 301,
