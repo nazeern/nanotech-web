@@ -49,14 +49,35 @@ export default function Login() {
           placeholder="••••••••"
           required
         />
-        <button className="bg-green-700 rounded px-4 py-2 text-white mb-2">
-          Login
+        <label className="text-md" htmlFor="firstName">
+          First Name
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="firstName"
+          placeholder="First Name"
+          required
+        />
+        <label className="text-md" htmlFor="lastName">
+          Last Name
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="lastName"
+          placeholder="Last Name"
+          required
+        />
+        <button
+          formAction="/auth/sign-up"
+          className="bg-green-700 rounded px-4 py-2 text-white mb-2"
+        >
+          Sign Up
         </button>
         <Link
-          href="/sign-up"
+          href="/login"
           className="px-4 py-2 text-black mb-2 text-center hover:underline"
         >
-          Don't have an account? Sign up!
+          Already have an account? Login!
         </Link>
         <Messages />
       </form>
