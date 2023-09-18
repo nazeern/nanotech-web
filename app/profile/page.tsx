@@ -14,7 +14,6 @@ export default async function Profile() {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <Navbar />
       <div className="w-1/2 my-12 flex flex-col gap-12">
         <p className="text-4xl text-left">
           <strong>
