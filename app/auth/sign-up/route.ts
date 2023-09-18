@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     email,
     password,
     options: {
-      emailRedirectTo: `${getURL()}/auth/callback`,
+      emailRedirectTo: `${getURL()}auth/callback`,
       data: {
         full_name: fullName,
       }
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
   if (error) {
     return NextResponse.redirect(
-      `${getURL()}/login?error=Could not authenticate user`,
+      `${getURL()}login?error=Could not authenticate user`,
       {
         // a 301 status is required to redirect from a POST to a GET route
         status: 301,
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
     )
   } else {
     return NextResponse.redirect(
-      `${getURL()}/login?message=Check email to continue sign in process`,
+      `${getURL()}login?message=Check email to continue sign in process`,
       {
         // a 301 status is required to redirect from a POST to a GET route
         status: 301,
