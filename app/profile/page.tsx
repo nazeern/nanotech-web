@@ -3,6 +3,8 @@ import { cookies } from "next/headers";
 import Navbar from "@/components/Navbar";
 import ProfileField from "@/components/ProfileField";
 
+export const dynamic = "force-dynamic";
+
 export default async function Profile() {
   const supabase = createServerComponentClient({ cookies });
 
