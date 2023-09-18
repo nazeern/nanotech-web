@@ -1,7 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Navbar from "@/components/Navbar";
-import ProfileField from "@/components/ProfileField";
+import Navbar from "@/app/components/Navbar";
+import ProfileField from "@/app/components/ProfileField";
 
 export const dynamic = "force-dynamic";
 
