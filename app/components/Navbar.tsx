@@ -2,7 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import LogoutButton from "./LogoutButton";
 import Link from "next/link";
 import { cookies } from "next/headers";
-import { twMerge } from "tailwind-merge";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -14,32 +14,41 @@ export default async function Navbar() {
   } = await supabase.auth.getUser();
 
   return (
-    <nav
-      className={twMerge(
-        "w-full h-16 flex justify-center border-b border-b-foreground/10"
-      )}
-    >
-      <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm text-foreground">
-        <div />
-        <div className="flex gap-4">
+    <nav className="fixed top-0 z-10 w-full h-16 flex justify-center border-b border-b-foreground/10 backdrop-filter backdrop-blur-3xl">
+      <div className="w-full flex justify-between items-center p-3 text-sm text-foreground">
+        <div className="flex items-center">
           <Link href="/">
-            <p className="py-2 px-4 hover:underline">Home</p>
+            <Image
+              src="/nanotech-logo.png"
+              alt="Nano Logo"
+              width="87"
+              height="30"
+              className="pb-1 mx-2"
+            />
           </Link>
           <Link href="/profile">
             <p className="py-2 px-4 hover:underline">Profile</p>
           </Link>
+        </div>
+        <div className="flex items-center gap-2">
+          <Link href="/construction" className="py-2 px-4 hover:underline">
+            Contact Us
+          </Link>
+          <span className="border-l h-6" />
           {user ? (
-            <div className="flex items-center gap-4">
-              Hey, {user.email}!
-              <LogoutButton />
-            </div>
+            <LogoutButton />
           ) : (
-            <Link
-              href="/login"
-              className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
-            >
-              Login
-            </Link>
+            <>
+              <Link href="/login">
+                <p className="py-2 px-4 hover:underline">Log in</p>
+              </Link>
+              <Link
+                href="/sign-up"
+                className="py-2 px-4 rounded-md no-underline text-slate-200 font-medium bg-slate-900 hover:bg-slate-800"
+              >
+                Sign Up Free
+              </Link>
+            </>
           )}
         </div>
       </div>

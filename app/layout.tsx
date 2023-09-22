@@ -1,5 +1,6 @@
 import Navbar from "@/app/components/Navbar";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
         <main className="min-h-screen bg-background flex flex-col items-center">
           <Navbar />
           {children}
+          <Footer />
         </main>
       </body>
     </html>
