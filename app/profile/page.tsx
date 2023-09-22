@@ -27,7 +27,7 @@ export default async function Profile() {
     .single();
 
   return (
-    <div className="md:w-1/2 w-5/6 my-12 flex flex-col gap-12">
+    <div className="my-24 md:w-1/2 w-5/6 flex flex-col gap-12">
       <p className="text-4xl text-left">
         <strong>
           {user ? `Welcome, ${user.email}.` : "Please login to continue."}
