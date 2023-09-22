@@ -69,7 +69,7 @@ export default function Login() {
         />
         <button
           formAction="/auth/sign-up"
-          className="bg-green-700 rounded px-4 py-2 text-white mb-2"
+          className="bg-slate-900 hover:bg-slate-800 rounded px-4 py-2 text-white mb-2"
         >
           Sign Up
         </button>
