@@ -7,15 +7,7 @@ export const dynamic = "force-dynamic";
 export default function Login() {
   return (
     <>
-      <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
-        <Link
-          href="/"
-          className="absolute left-16 top-24 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
-        >
-          <BackArrow className="group-hover:-translate-x-1" />
-          Back
-        </Link>
-
+      <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 my-16">
         <form
           className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
           action="/auth/sign-in"

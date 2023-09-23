@@ -21,7 +21,7 @@ const resources = [
 export default async function Footer() {
   return (
     <footer className="flex justify-center w-full mt-auto border-t border-t-foreground/10">
-      <div className="w-1/2 flex justify-between items-center my-12">
+      <div className="w-3/4 flex justify-between items-center my-12">
         <Link href="/">
           <Image
             src="/nanotech-logo.png"
