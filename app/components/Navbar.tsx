@@ -32,6 +32,9 @@ export default async function Navbar() {
           <Link href="/profile">
             <p className="py-2 px-4 hover:underline hidden md:block">Profile</p>
           </Link>
+          <Link href="/usb">
+            <p className="py-2 px-4 hover:underline hidden md:block">USB</p>
+          </Link>
         </div>
         <div className="flex items-center gap-2">
           <Link
